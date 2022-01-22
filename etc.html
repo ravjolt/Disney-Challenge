@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Disney Events</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+  <link href="https://fonts.googleapis.com/css?family=Mea Culpa" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Meddon" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+
+
+  <link rel="stylesheet" href="static/css/style2.css">
+  <link rel="stylesheet" href="static/css/evo-calendar.min.css">
+  <link rel="stylesheet" href="static/css/evo-calendar.midnight-blue.min.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+    
+    <script>
+      const button = document.querySelector('#button');
+      const tooltip = document.querySelector('#tooltip');
+      const popperInstance = Popper.createPopper(button, tooltip);
+    </script>
+
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid ">
+            <a class="top-navbar-text-latitude bg-dark text-white" href="index.html">Disney Fans Unite!</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownMenuLink" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Disney Properties
+                        </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item text-white" href="movies.html">Movies</a>
+                            <a class="dropdown-item text-white" href="parks.html">Parks</a>
+                            <a class="dropdown-item text-white" href="etc.html">Etc.</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html">Home</a>
+                    </li>
+
+ 
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+      <div
+  class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  style="background-image: url('https://wallpapercave.com/wp/2wuJNqK.jpg');"
+>
+
+
+      <h1>Disney Events</h1>
+      <br>
+      <img src="https://attractionsmagazine.com/wp-content/uploads/2021/07/Walt-Disney-World-cavalcade-times-1170x597.jpg" class="img-thumbnail">
+      <br>
+      <br>
+      <hr size="2" width="90%" color="white">  
+      <br>
+      <p>In addition to the rides and attractions, the Disney parks have special events running throughout the year to celebrate holidays, seasons, and the Disney community.</p>
+      <br>
+      <p>The tireless work of cast members and Disney fans make the magic happen all year round, with both official and unofficial events for you and your family to join! Take a look at the calendar below detailing upcoming events at the Disneyland Resort in Anaheim.</p>
+      <br>
+      <hr size="2" width="90%" color="white">  
+      <br>   
+      <br> 
+
+  <div class="hero">
+
+    <div id="calendar"></div>
+
+
+
+
+  </div>
+
+  <!-- Add jQuery library (required) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+
+  <script src=static/js/evo-calendar.min.js></script>
+
+  <script>
+  // Initialize evo-calendar in your script file or an inline <script> tag
+    $(document).ready(function() {
+        $('#calendar').evoCalendar({
+            // settingName: settingValue
+        
+          theme: "Midnight Blue",
+          calendarEvents: [
+      
+            {
+              name: "Three Kings Day",
+              badge: "01/03 - 01/09", // Event badge (optional)
+              date: ["January/3/2022", "January/9/2022"], // Date range
+              description: "Location: Disney California Adventure (Paradise Gardens Park).  Disneyland celebrates Three Kings Day—El Día de los Reyes Magos— with traditional décor and a photo opportunity—scheduled to return winter 2023.  Enjoy coloring, decorations, stories, and holiday treats, like Rosca de Reyes cake!", // Event description (optional)
+              type: "holiday",
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {
+              name: "Lunar New Years",
+              badge: "01/21 - 02/13", // Event badge (optional)
+              date: ["January/21/2022", "February/13/2022"], // Date range
+              description: "Location: Disney California Adventure (Paradise Gardens Park).  Celebrate Lunar New Years with all of your Disney friends, including Tigger (to spring into the Year of the Tiger)!  Mulan's Lunar New Year's Procession is a stunning spectacle that leads the way from Pixar Pier gate to the Obelisk.  Includes crafts, activities, traditional food, beverages and sweet treats from Chinese, Korean, Vietnamese and other Asian cultures at Asian marketplaces.", // Event description (optional)
+              type: "holiday",
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {
+              name: "Superbowl Celebration",
+              badge: "02/13 - 02/14", // Event badge (optional)
+              date: ["February/13/2022", "February/14/2022"], // Date range
+              description: "Location: Disneyland Park and Disney California Adventure.  The Superbowl is taking place in Los Angeles this year, so it is expected that guests will make the most of Superbowl weekend by visiting the Magic Kingdom. Win or lose, celebrate or commiserate with your favorite Disney characters!", // Event description (optional)
+              type: "event",
+              color: "#84BDD5" // Event custom color (optional)
+            },
+                        {
+              id: 'bHay68a', // Event's ID (required)
+              name: "Disneyland After Dark: Sweethearts' Nite", // Event name (required)
+              date: "February/1/2022", // Event date (required)
+              description: "Location: Disneyland Park. Sweethearts Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities include romatic photo-ops at some of your favorite Disney locations (with unlimited Photo-Pass downloads), a special themed firework show, meeting your favorite Diney couples, and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                                    {
+              id: 'bHay68b', // Event's ID (required)
+              name: "Disneyland After Dark: Sweethearts' Nite", // Event name (required)
+              date: "February/3/2022", // Event date (required)
+              description: "Location: Disneyland Park. Sweethearts Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities include romatic photo-ops at some of your favorite Disney locations (with unlimited Photo-Pass downloads), a special themed firework show, meeting your favorite Diney couples, and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {
+              id: 'bHay68c', // Event's ID (required)
+              name: "Villains Day: Stalk Around the Park", // Event name (required)
+              date: "February/6/2022", // Event date (required)
+              description: "Location: Disneyland Park and Disney California Adventure. This unofficial event at Disneyland Park and Disney California Adventures puts a spotlight on the villains, with guests enjoying the park in their favorite Disney villain-themed attire. Note: Visitors must adhere to Disneyland guidelines regarding costumes and attire.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68d', // Event's ID (required)
+              name: "Disneyland After Dark: Sweethearts' Nite", // Event name (required)
+              date: "February/8/2022", // Event date (required)
+              description: "Location: Disneyland Park. Sweethearts Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities include romatic photo-ops at some of your favorite Disney locations (with unlimited Photo-Pass downloads), a special themed firework show, meeting your favorite Diney couples, and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68e', // Event's ID (required)
+              name: "Disneyland After Dark: Sweethearts' Nite", // Event name (required)
+              date: "February/10/2022", // Event date (required)
+              description: "Location: Disneyland Park. Sweethearts Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities include romatic photo-ops at some of your favorite Disney locations (with unlimited Photo-Pass downloads), a special themed firework show, meeting your favorite Diney couples, and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68f', // Event's ID (required)
+              name: "Disneyland After Dark: Sweethearts' Nite", // Event name (required)
+              date: "February/14/2022", // Event date (required)
+              description: "Location: Disneyland Park. Sweethearts Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities include romatic photo-ops at some of your favorite Disney locations (with unlimited Photo-Pass downloads), a special themed firework show, meeting your favorite Diney couples, and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68g', // Event's ID (required)
+              name: "New Orleans Square Mardi Gras", // Event name (required)
+              date: "March/1/2022", // Event date (required)
+              description: "Location: Disneyland Park and Downtown Disney. Disneyland is decked out for Mardi Gras, with masks and beads. Includes a special Mardi Gras menu at Cafe Orleans. Ralph Brennan’s Jazz Kitchen in Downtown Disney celebrates in style, with Mardi Gras decorations and a Fat Tuesday special menu with one-of-a-kind menu items and special discounts. Note: This date is subject to change.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68h', // Event's ID (required)
+              name: "Mini Gay Day", // Event name (required)
+              date: "March/6/2022", // Event date (required)
+              description: "Location: Disneyland Park and Disney California Adventure. Mini Gay Day is an unofficial mid-year celebration for the LBGTQIA+ community and allies. Wear your red shirt and rainbow Mickey ears and enjoy family-friendly events, in-park get-togethers, custom cocktails, concerts, and other events!",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68i', // Event's ID (required)
+              name: "Disneyland After Dark: Villains Nite", // Event name (required)
+              date: "March/8/2022", // Event date (required)
+              description: "Location: Disneyland Park. Villains Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities inclide DJ-hosted dance parties, singalongs in the park, The Cauldron (a villain-themed cabaret), photo-ops featuring famous Disney villains' hideouts (plus unlimited digital PhotoPass downloads), and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68i', // Event's ID (required)
+              name: "Disneyland After Dark: Villains Nite", // Event name (required)
+              date: "March/10/2022", // Event date (required)
+              description: "Location: Disneyland Park. Villains Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities inclide DJ-hosted dance parties, singalongs in the park, The Cauldron (a villain-themed cabaret), photo-ops featuring famous Disney villains' hideouts (plus unlimited digital PhotoPass downloads), and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {
+              name: "Egg-stravaganza",
+              badge: "03/01 - 04/30", // Event badge (optional)
+              date: ["March/1/2022", "April/30/2022"], // Date range
+              description: "Days and Location: TBD (it moves to a different spot at the Diney Resort every year).  Go on a spring-themed scavengar hunt! Visitors can purchase a board and go around the resort to mark your finds with an egg sticker. Redeem your completed game board to collect a special reward! Egg-stravaganza also includes spring-themed treats and a meet-up with the Easter Bunny.", // Event description (optional)
+              type: "event",
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68j', // Event's ID (required)
+              name: "Dapper Day", // Event name (required)
+              date: "April/24/2022", // Event date (required)
+              description: "Location: Disneyland Park and Disney California Adventure. This unofficial event encourages guests to dress up in their finest 1950's finery to celebrate the opening of Disneyland in 1955. Many guests pair this event with The Dapper Day Expo at the Disneyland Hotel April 23-24, 2022.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68k', // Event's ID (required)
+              name: "Disneyland After Dark: Star Wars Nite", // Event name (required)
+              date: "May/3/2022", // Event date (required)
+              description: "Location: Disneyland Park. Star Wars Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 6 p.m. Activities inclide character encounters, a Star Wars-themed firework show, a dance party, March of the First Order with Captain Phasma and Stormtroopers, galactic photo-ops (plus unlimited digital PhotoPass downloads), and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68l', // Event's ID (required)
+              name: "Disneyland After Dark: Star Wars Nite", // Event name (required)
+              date: "May/4/2022", // Event date (required)
+              description: "Location: Disneyland Park. Star Wars Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 6 p.m. Activities inclide character encounters, a Star Wars-themed firework show, a dance party, March of the First Order with Captain Phasma and Stormtroopers, galactic photo-ops (plus unlimited digital PhotoPass downloads), and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68m', // Event's ID (required)
+              name: "Bats Day", // Event name (required)
+              date: "April/24/2022", // Event date (required)
+              description: "Location: Disneyland Park and Disney California Adventure. Who says that Disney and goth culture can't exist in the same space? This unofficial event brings guests wearing all sorts of attire, from goth to steampunk to Halloween and much more! Note: The date of this event is tentative.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },            
+                        {            
+              id: 'bHay68n', // Event's ID (required)
+              name: "Disneyland After Dark: Star Wars Nite", // Event name (required)
+              date: "May/27/2022", // Event date (required)
+              description: "Location: Disneyland Park. Star Wars Nite is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 6 p.m. Activities inclide character encounters, a Star Wars-themed firework show, a dance party, March of the First Order with Captain Phasma and Stormtroopers, galactic photo-ops (plus unlimited digital PhotoPass downloads), and much more.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },
+                        {            
+              id: 'bHay68o', // Event's ID (required)
+              name: "Tentative: Disney Fan Fest", // Event name (required)
+              date: "May/9/2022", // Event date (required)
+              description: "Location: Disneyland Park. Meet with fellow Disney fans and test your Disney knowledge at this event! Activities include: 'Descendants' and 'ZOMBIES'-themed dance parties, drawing lessons with Disney animators, Disney's 'QUIZney' trivia challenge, a procession down Main Street with celebrities and characters, celebity photo-ops (arrive early and collect a wristband at park opening on a first-come, first-served basis), and more!",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },            
+                        {            
+              id: 'bHay68p', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/13/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },  
+                        {            
+              id: 'bHay68p', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/13/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },                          
+                        {            
+              id: 'bHay68p', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/14/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },                          
+                        {            
+              id: 'bHay68p', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/18/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },                          
+                        {            
+              id: 'bHay68q', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/20/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },   
+                        {            
+              id: 'bHay67q', // Event's ID (required)
+              name: "CHOC Walk in the Park (virtual)", // Event name (required)
+              date: "May/22/2022", // Event date (required)
+              description: "Location: Online. Join us online for this wonderful virual event benefitting Children’s Hospital of Orange County. Last year's walk raised over $1.2 million!",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#5192AE" // Event custom color (optional)
+            },               
+                           {            
+               id: 'bHay69g', // Event's ID (required)
+               name: "Disneyland’s Birthday", // Event name (required)
+               date: "July/4/2022", // Event date (required)
+               description: "Location: Disneyland Park. The Disneyland Park is turning 67 years old, and we want you to join us! Your favorite Disney characters will be able to celebrate, and there may be unique opportunities to commemorate the moment with photo-ops with special birthday signs. For those who choose to dress Dapper, there are special souveniers available.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                                    
+                        {            
+              id: 'bHay68r', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/21/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },                          
+                        {            
+              id: 'bHay68u', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/25/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+              type: "event", // Event type (required)
+              // everyYear: true // Same event every year (optional)
+              color: "#84BDD5" // Event custom color (optional)
+            },                          
+                        {            
+              id: 'bHay68v', // Event's ID (required)
+              name: "Grad Night", // Event name (required)
+              date: "May/26/2022", // Event date (required)
+              description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay68w', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "May/31/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay68x', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/1/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay68y', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/3/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay68z', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/4/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay69a', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/7/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay69b', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/8/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay69c', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/10/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },                          
+                         {            
+               id: 'bHay69d', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/11/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             },  
+                           {            
+               id: 'bHay69e', // Event's ID (required)
+               name: "Grad Night", // Event name (required)
+               date: "June/17/2022", // Event date (required)
+               description: "Location: Disneyland Park. Schools set up a private party to allow their recent grads to celebrate from 9 pm 'and straight on 'til morning.' Recent grads will likely be visiting both Disneyland Park and California Adventure, so non-grads should plan their Disney adventure accordingly to adjust for possible crowd surges.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             }, 
+                           {            
+               id: 'bHay69f', // Event's ID (required)
+               name: "Fourth of July", // Event name (required)
+               date: "July/4/2022", // Event date (required)
+               description: "Location: Disneyland Park and Disney California Adventure. If a gorgeous fireworks display to celebrate the 4th of July is looking for, then the Magic Kingdom has you covered. Disneyland Park, awash is red, white, and blue decorations, will dazzle you with 'Disney's Celebrate America! A Fourth of July Concert in the Sky.' Disney California Adventure also has a fireworks presentation of its own.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#5192AE" // Event custom color (optional)
+             }, 
+                           {            
+               id: 'bHay69g', // Event's ID (required)
+               name: "Disneyland’s Birthday", // Event name (required)
+               date: "July/4/2022", // Event date (required)
+               description: "Location: Disneyland Park. The Disneyland Park is turning 67 years old, and we want you to join us! Your favorite Disney characters will be able to celebrate, and there may be unique opportunities to commemorate the moment with photo-ops with special birthday signs. For those who choose to dress Dapper, there are special souveniers available.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             }, 
+                                      {
+               name: "Gay Days",
+               badge: "09/16 - 9/18", // Event badge (optional)
+               date: ["September/1/2022", "September/18/2022"], // Date range
+               description: "Location: Disneyland Park and Disney California Adventure. Gay Days is an unofficial mid-year celebration for the LBGTQIA+ community and allies. Wear your red shirt and rainbow Mickey ears and enjoy family-friendly events, in-park get-togethers, custom cocktails, concerts, and other events! Sponsors of this event include Disney’s Aulani Hotel, Adventures by Disney, Disney Vacation Club and Disney Pride, Disney's LGBT diversity group.", // Event description (optional)
+                type: "event",
+               color: "#84BDD5" // Event custom color (optional)
+             },             
+                         {
+               name: "Halloween Time at the Disneyland Resort",
+               badge: "09/01 - 10/31", // Event badge (optional)
+               date: ["September/1/2022", "October/31/2022"], // Date range
+               description: "Location: Disneyland Park and Disney California Adventure. The Disneyland Resort goes all out in the days leading up to Halloween, with hundreds of pumpkins lining Main Street. Rides, such as the Haunted Mansion are uniquely themed for the spooky season. At night, there is a projection and special effects show and a unique fireworks show. At Disney California Adventure, Cars Land and Guardians of the Galaxy — Mission Breakout! get a Halloween overhaul (Guardians of the Galaxy becomes Guardians of the Galaxy — Monsters After Dark after 5 p.m. (4 p.m. on certain days)). Select days in September and October have the Oogie Boogie Bash, which is filled with character encounters, interactive events, scarily delicious culniary delights, and more!", // Event description (optional)
+                type: "event",
+               color: "#5192AE" // Event custom color (optional)
+             },
+                                      {
+               name: "Plaza de la Familia",
+               badge: "09/01 - 11/15", // Event badge (optional)
+               date: ["September/1/2022", "November/15/2022"], // Date range
+               description: "Location: Disney California Adventure. Disneyland California Adventure celebrates family in Paradise Gardens with Mariachi music, delicious Mexican foods, a Tree of Life interactive photo exhibit, photo walls, free coloring and craft activities and the chance to meet Miguel. This tribute to 'Coco' includes 'A Musical Celebration of Coco', a show that features dancing, storytellers, and a beaituful puppet show from Miguel and dancing skeletons!", // Event description (optional)
+                type: "event",
+               color: "#5192AE" // Event custom color (optional)
+             },
+                                      {
+               name: "Dapper Day Fall Outing",
+               badge: "11/05 -11/06", // Event badge (optional)
+               date: ["November/5/2022", "November/6/2022"], // Date range
+               description: "Location: Disneyland Park. This unofficial event encourages guests to dress up in their finest 1950's finery to celebrate the opening of Disneyland in 1955. Many guests pair this event with The Dapper Day Expo at the Disneyland Hotel on Saturday, November 5th, while the official party in the park is on Sunday, November 6th.", // Event description (optional)
+                type: "event",
+               color: "#84BDD5" // Event custom color (optional)
+             },  
+                           {            
+               id: 'bHay69h', // Event's ID (required)
+               name: "Mickey's and Minnie's Birthday", // Event name (required)
+               date: "November/18/2022", // Event date (required)
+               description: "Location: Disneyland Park. This unofficial birthday party for two of Disney's biggest characters. While an unofficial event, Disney has been known to distribute commemorative souveniers, and Mickey and Minnie might make an appearance.",
+               type: "event", // Event type (required)
+               // everyYear: true // Same event every year (optional)
+               color: "#84BDD5" // Event custom color (optional)
+             }, 
+                                      {
+               name: "Holidays at the Disneyland Resort",
+               badge: "11/01 - 01/01", // Event badge (optional)
+               date: ["November/1/2022", "January/1/2023"], // Date range
+               description: "Location: Disneyland Park and Disney California Adventure. Disneyland provides so much spectacular things to see and do during the holiday season. A Christmas fantasy parade, a holiday Magic Fireworks show, holiday-themed It's A Small World, Jack Skellington takes over the Haunted Mansion, Sleeping Beauty's castle and Main Street are decked out for the holidays, Viva Navidad Street Party, Disney California Adventure's Festival of Holidays, and meetings with Santa!", // Event description (optional)
+                type: "event",
+               color: "#5192AE" // Event custom color (optional)
+             },
+                                       {
+               name: "Disney Merriest Nites",
+               badge: "11/01 - 01/01", // Event badge (optional)
+               date: ["November/1/2022", "December/31/2022"], // Date range
+               description: "Location: Disneyland Park. Disney Merriest Nites is a separately ticketed event inside Disneyland Park after the park closes. Participants are allowed in the park starting at 5 p.m. Activities include themed holiday parties in each of the lands, Christmas fantasy parade, character encounters, musical performances, DJs, snow on Main Street, and themed photo-ops, and much more!", // Event description (optional)
+                type: "event",
+               color: "#5192AE" // Event custom color (optional)
+             },
+
+
+
+          ]
+
+
+
+        })
+    })
+  </script>
+   
+
+
+
+    <img src="static/images/Disney-Logo-Transparent-mini.png" class='float-left'>
+
+    <div class="panel-footer navbar-bottom text-left bg-dark">
+
+            <br>
+            <span class='float-right text-white'><a href="sources.html">Sources</a>
+  </div>
+  </div>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <script src="static/js/app.js"></script>
+</body>
+
+</html>
