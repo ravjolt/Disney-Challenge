@@ -255,6 +255,8 @@ def movie_info():
     #reterieve table data
     dfs = pd.read_html(page.text)
     dfs
+    box_office_stats = dfs[1]
+    total_stats = dfs[0]
     disney_data = pd.merge(total_stats,box_office_stats,how='left')
 
 
