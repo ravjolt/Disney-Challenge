@@ -223,7 +223,8 @@ def movie_info():
     meta_4=MetaData()    
     disney_movie_performance = Table(
     'disney_movie_performance', meta_4,
-    Column('index', Integer, primary_key = True),
+    Column('index',Integer, primary_key = True),
+    Column('Year', Integer),
     Column('No. 1 Movie', String(255)),
     Column('Total Movies Released', String(255)),
     Column('Average Production Budget', String(255)),
@@ -249,18 +250,26 @@ def movie_info():
     url = 'https://www.the-numbers.com/movies/distributor/Walt-Disney#tab=year'
     browser.visit(url)
     #get data from url
-    page = requests.get(url)
+    html = browser.html
+    soup = bs(html, 'html.parser')
+    table = soup.find("table")
+
+    # The first tr contains the field names.
+    headings = [th.get_text().strip() for th in table.find("tr").find_all("th")]
+
+
+    data = []
+    for row in table.find_all("tr")[1:]:
+        table_data = dict(zip(headings, (td.get_text() for td in row.find_all("td"))))
+        data.append(table_data)
 
 
     #reterieve table data
-    dfs = pd.read_html(page.text)
-    dfs
-    box_office_stats = dfs[1]
-    total_stats = dfs[0]
-    disney_data = pd.merge(total_stats,box_office_stats,how='left')
+    dfs = pd.DataFrame(data)
+    disney_data = dfs
 
 
-    disney_data.drop(labels=['AnnualStats','Index'],axis=1,inplace=True)
+    disney_data.drop(labels=['AnnualStats'],axis=1,inplace=True)
 
 
 
@@ -273,9 +282,27 @@ def movie_info():
                            'Average Production Budget', 
                            'Combined Worldwide Box Office']]
     disney_data= disney_data[disney_data['No. 1 Movie'].notna()] 
-    disney_data=disney_data.set_index('Year')
-    disney_data= disney_data.drop(['Total'])
-    best_seller_info = disney_data.loc["Total", "No. 1 Movie"]
+    disney_data = disney_data.apply(lambda x: x.str.strip()).replace('', np.nan)
+    disney_data=disney_data.dropna()
+    
+    def clean_currency(x):
+        if isinstance(x, str):
+            return(x.replace('$', '').replace(',', ''))
+        return(x)
+
+    disney_data['Combined Worldwide Box Office'] = disney_data['Combined Worldwide Box Office'].apply(clean_currency).astype('float')
+    disney_data['Average Production Budget'] = disney_data['Average Production Budget'].apply(clean_currency).astype('float')
+
+
+    disney_data = disney_data.reset_index(drop=True)
+    disney_data= disney_data[disney_data['No. 1 Movie'].notna()] 
+
+    pd.set_option('display.float_format', lambda x: '%.1f' % x)
+
+    best_seller = disney_data.sort_values(by='Combined Worldwide Box Office', ascending=False)
+    best_seller['Combined Worldwide Box Office']=best_seller['Combined Worldwide Box Office'].apply(lambda x: f"${x/1000:.1f}")
+
+    best_seller_info = disney_data.iloc[0,[1,4]]
     best_dict = {'Overall Best Selling Movie': best_seller_info}
     best_seller_df = pd.DataFrame(best_dict, index = [0])
     
