@@ -1,15 +1,7 @@
-import os
-import pandas as pd
 from flask import (Flask, 
-render_template, make_response, request)
+render_template)
 import sqlite3
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import func
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
-from flask import Flask, jsonify, render_template
-from flask_sqlalchemy import SQLAlchemy
-
+from flask import Flask, render_template
 
 app = Flask(__name__, template_folder= 'templates')
 app.config['ENV'] = 'development'
@@ -30,8 +22,7 @@ def etc_page():
     return render_template("etc.html")
 
 @app.route('/Parks')
-def park_page():
-    #park_rides_data = scrape_disney.ride_info   
+def park_page():   
     def get_park_status():
         HOST_NAME = "localhost"
         HOST_PORT = 80
